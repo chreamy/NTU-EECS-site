@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "https://kiyoyoneko.github.io/NTU-EECS-site",
+  "homepage": "https://kiyoyoneko.github.io",
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
@@ -43,7 +43,6 @@
     "vite": "^4.1.0"
   },
   "scripts": {
-    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "vite",
     "build": "vite build",

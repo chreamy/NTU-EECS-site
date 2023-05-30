@@ -15,6 +15,7 @@ const displaydata = [{title:'a',url:'https://i.ibb.co/YXf9nF7/ezgif-com-video-to
 {title:'h',url:'https://i.ibb.co/YXf9nF7/ezgif-com-video-to-gif-1.gif'}] //main content from DB
 
 const Home = () => {
+  const slidewidth = 500
   const Nav = () => {
     
     return (
@@ -23,7 +24,8 @@ const Home = () => {
       <span key={displaydata.indexOf(ID)+1}>
         <button
                 onClick={() => {
-                  instanceRef.current?.moveToIdx(Math.min(displaydata.indexOf(ID)+1,displaydata.length-2))
+                  const width = window.innerWidth;
+                  instanceRef.current?.moveToIdx(Math.min(displaydata.indexOf(ID)+1,displaydata.length-width/slidewidth+1))
                 }}
               >{ID.title}</button>
       </span>
@@ -37,7 +39,7 @@ const Home = () => {
     loop: false,
     mode: "free",
     slides: {
-      perView: 3,
+      perView: 'auto',
       spacing: 15,
     },
     initial: 0,
@@ -59,11 +61,11 @@ const Home = () => {
 
   return (
     <div ref={sliderRef} className="keen-slider app">
-      <div className='keen-slider__slide'>
+      <div className='keen-slider__slide' style={{ maxWidth: 150, minWidth: 150 }}>
         <Nav/>
       </div>
       {displaydata.map(ID => (
-      <div className='keen-slider__slide'><h1>{ID.title}</h1><img src={ID.url}/></div>
+      <div className='keen-slider__slide slide' style={{ maxWidth: slidewidth, minWidth: slidewidth }}><h1>{ID.title}</h1><img src={ID.url}/></div>
     ))}
     </div>
   )

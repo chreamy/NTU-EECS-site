@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/NTU-EECS-site/static/css/main.ae768a11.css",
+    "main.js": "/NTU-EECS-site/static/js/main.93e7f4fd.js",
+    "index.html": "/NTU-EECS-site/index.html",
+    "main.ae768a11.css.map": "/NTU-EECS-site/static/css/main.ae768a11.css.map",
+    "main.93e7f4fd.js.map": "/NTU-EECS-site/static/js/main.93e7f4fd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ae768a11.css",
+    "static/js/main.93e7f4fd.js"
+  ]
+}

@@ -14,7 +14,7 @@ server.use(
     extended: true,
   })
 );
-mongoose.connect(process.env.MONGODB_URI,{
+mongoose.connect("mongodb://localhost:27017/",{
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
@@ -24,14 +24,6 @@ const connection = mongoose.connection;
 connection.once('open',()=>{console.log('mongo connected!')})
 const usersRouter = require('./routes/users')
 server.use('/users',usersRouter)
-const callbackRouter = require('./routes/callback')
-server.use('/callback',callbackRouter)
-const riotRouter = require('./routes/riot')
-server.use('/riot',riotRouter)
-server.post('/post', (req, res) => {
-  console.log(req.body);
-  res.json(req.body);
-});
 // Start the API server
 server.listen(PORT, () => console.log('Local app listening'));
 

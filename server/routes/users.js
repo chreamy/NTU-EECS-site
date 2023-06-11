@@ -1,6 +1,6 @@
 const bodyParser = require('body-parser');
 const router = require('express').Router();
-let User = require('../schemas/users');
+let User = require('../schemas/user');
 
 router.route('/').get((req, res) => {
   User.find()
@@ -8,36 +8,44 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 router.route('/add').post((req, res) => {
-  const username = req.body.username;
-  const newUser = new User({username});
+  
+  const newUser = new User({
+    username: req.body.username,
+    password: req.body.password,
+    name: req.body.name,
+    email: req.body.email,
+    phone: req.body.phone,
+    permission: req.body.permission
+  });
 
   newUser.save()
     .then(() => res.json('User added!'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/:id').get((req, res) => {
-    User.findById(req.params.id)
+router.route('/:username').get((req, res) => {
+    User.find({username:req.params.username})
       .then(users => res.json(users))
       .catch(err => res.status(400).json('Error: ' + err));
   });
 
   
-  router.route('/:id').delete((req, res) => {
-    User.findByIdAndDelete(req.params.id)
+  router.route('/:username').delete((req, res) => {
+    User.findOneAndDelete({username:req.params.username})
       .then(() => res.json('User deleted.'))
       .catch(err => res.status(400).json('Error: ' + err));
   });
   
-  router.route('/update/:id').post((req, res) => {
-    User.findById(req.params.id)
-      .then(user => {
-        user.username = req.body.username;
-        user.save()
-          .then(() => res.json('User updated!'))
+  router.route('/update/:username').post((req, res) => {
+    User.replaceOne({username:req.params.username},{
+      username: req.body.username,
+      password: req.body.password,
+      name: req.body.name,
+      email: req.body.email,
+      phone: req.body.phone,
+      permission: req.body.permission
+    }).then(() => res.json('User updated!'))
           .catch(err => res.status(400).json('Error: ' + err));
-      })
-      .catch(err => res.status(400).json('Error: ' + err));
   });
 
 module.exports = router;

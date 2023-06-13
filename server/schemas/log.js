@@ -9,6 +9,6 @@ const logSchema = new Schema({
   time: { type: Date, default: Date.now, required: true },
 });
 
-const Logs = mongoose.model('Logs', logSchema);
+const Log = mongoose.model('Logs', logSchema);
 
-module.exports = Logs;
+module.exports = Log;

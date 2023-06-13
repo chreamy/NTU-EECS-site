@@ -7,11 +7,12 @@ const userSchema = new Schema({
   name: { type: String, required: true },
   email: { type: String, required: true },
   phone: String,
+  preferredContact: String,
   permission: { type: Number, required: true }, //0: admin, 1: reviewer, 2: editor...
 });
 
 userSchema.set('timestamps', true);
 
-const Users = mongoose.model('Users', userSchema);
+const User = mongoose.model('Users', userSchema);
 
-module.exports = Users;
+module.exports = User;

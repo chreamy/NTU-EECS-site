@@ -1,4 +1,3 @@
-const bodyParser = require('body-parser');
 const router = require('express').Router();
 let User = require('../schemas/user');
 
@@ -37,15 +36,21 @@ router.route('/:username').get((req, res) => {
   });
   
   router.route('/update/:username').post((req, res) => {
-    User.replaceOne({username:req.params.username},{
-      username: req.body.username,
-      password: req.body.password,
-      name: req.body.name,
-      email: req.body.email,
-      phone: req.body.phone,
-      permission: req.body.permission
-    }).then(() => res.json('User updated!'))
-          .catch(err => res.status(400).json('Error: ' + err));
+    User.findOne({username:req.params.username})
+      .then(user => {
+        User.replaceOne({username:req.params.username},{
+          username: req.body.username||user.username,
+          password: req.body.password||user.password,
+          name: req.body.name||user.name,
+          email: req.body.email||user.email,
+          phone: req.body.phone||user.phone,
+          permission: req.body.permission||user.permission
+        }).then(() => res.json('User updated!'))
+              .catch(err => res.status(400).json('Error: ' + err));
+      })
+      .catch(err => res.status(400).json('Error: ' + err));
+  
+    
   });
 
 module.exports = router;

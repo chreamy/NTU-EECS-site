@@ -25,7 +25,7 @@ __**Post API**__
 
 **__SCHEMAS__**
 
-```const postSchema = new Schema({
+const postSchema = new Schema({
   author: { type: String, required: true },
   title: { type: String, required: true },
   description: String,
@@ -39,9 +39,9 @@ __**Post API**__
   created: { type: Date, default: Date.now, required: true },
   updated: { type: Date, default: Date.now, required: true },
   status: { type: Number, min:0,max:2,required: true } //0: pending, 1: approved, 2:rejected
-});```
+});
 
-```const userSchema = new Schema({
+const userSchema = new Schema({
   username: { type: String, required: true },
   password: { type: String, required: true },
   name: { type: String, required: true },
@@ -51,12 +51,12 @@ __**Post API**__
   created: { type: Date, default: Date.now, required: true },
   updated: { type: Date, default: Date.now, required: true },
   permission: { type: Number, required: true }, //0: admin, 1: reviewer, 2: poster, 3: no perms
-});```
+});
 
-`const logSchema = new Schema({
+const logSchema = new Schema({
   username: { type: String, required: true },
   postid: { type: Number, required: true },
   actionid: { type: Number, required: true }, //0: edit, 1: delete, 2: archive....
   comments: String,
   time: { type: Date, default: Date.now, required: true },
-});`
+});

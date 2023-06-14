@@ -5,7 +5,7 @@ API reference with role specifications, numbers indicate that operations can onl
 
 __**User API**__
 
-`GET /user` 0️⃣ Returns all users 1️⃣ Returns all posters
+`GET /user` 0️⃣ Returns all users 1️⃣ Returns all posters\n
 `POST /user/add` 0️⃣ Registers a new user to DB
 `GET /user/<username>` 0️⃣ Returns any user info with corresponding username 1️⃣ Returns poster info with corresponding username
 `DELETE /user/<username>` 0️⃣ Deletes the user with corresponding username

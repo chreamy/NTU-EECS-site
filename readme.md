@@ -25,6 +25,7 @@ __**Post API**__
 
 **__SCHEMAS__**
 
+```js
 const postSchema = new Schema({
   author: { type: String, required: true },
   title: { type: String, required: true },
@@ -59,4 +60,4 @@ const logSchema = new Schema({
   actionid: { type: Number, required: true }, //0: edit, 1: delete, 2: archive....
   comments: String,
   time: { type: Date, default: Date.now, required: true },
-});
+});```

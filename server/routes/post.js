@@ -1,7 +1,9 @@
 const router = require('express').Router();
 let Post = require('../schemas/post');
+const auth = require('./auth');
 
-router.route('/').get((req, res) => {
+router.route('/').get(async (req, res) => {
+  if(await auth(req,1)!==1){res.status(403).json('Auth Error');return}
   Post.find()
     .then(posts => res.json(posts))
     .catch(err => res.status(400).json('Error: ' + err));

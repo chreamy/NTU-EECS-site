@@ -8,10 +8,10 @@ const userSchema = new Schema({
   email: { type: String, required: true },
   phone: String,
   preferredContact: String,
-  permission: { type: Number, required: true }, //0: admin, 1: reviewer, 2: editor...
+  created: { type: Date, default: Date.now, required: true },
+  updated: { type: Date, default: Date.now, required: true },
+  permission: { type: Number, required: true }, //0: admin, 1: reviewer, 2: poster, 3: no perms
 });
-
-userSchema.set('timestamps', true);
 
 const User = mongoose.model('Users', userSchema);
 

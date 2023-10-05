@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-
+/src/const.jsx
 # production
 /build
 

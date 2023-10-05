@@ -2,9 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-
+@font-face {
+  font-family: 'AFBB'; /* Name for your font */
+  src: url('AgencyFB-Bold.ttf') format('truetype'); /* Path to your TTF file */
+  font-weight: normal;
+  font-style: normal;
+}
 :root {
-  --font-family: 'Roboto Mono', monospace;
 
   --gradient-text: linear-gradient(103.22deg, #67d5fa -13.86%, #df67f4 99.55%);
   --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%);

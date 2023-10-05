@@ -1,5 +1,55 @@
+
 .app div{
-    background-color: grey;
+    background: none;
     height: 100vh;
     position:absolute;
 }
+.page div{
+    background: none !important;
+}
+.wrapper {
+    display: flex;
+    text-align: justify;
+    overflow: hidden;
+    overflow-wrap: break-word;
+        height: 791px;
+        margin-top: 168px;
+    
+  }
+  
+  .float {
+    float: right;
+    height: 100%;
+    margin-left: 48px;
+    display: flex;
+    align-items: flex-end;
+    shape-outside: inset(calc(100% - 309px) 0 0);
+    
+  }
+  span{
+    font-size: 35px !important;
+    font-family: 'Noto Sans TC Demi Light';
+    line-height: 48px !important;
+    letter-spacing: 2px;
+  }
+  .title{
+    font-size: 52px !important;
+    font-weight: 450;
+    font-family: 'Noto Sans TC';
+    color: #efbe7f;
+  }
+  .vertical {
+  transform: rotate(-90deg); /* Rotate and move to top */
+  transform-origin: top left;
+  white-space: nowrap;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 450;
+}
+.vertical2 {
+    transform: rotate(-90deg); /* Rotate and move to top */
+    transform-origin: top left;
+    white-space: nowrap;
+    color:#d3d3d3;
+    font-size: 65px;
+    font-weight: 450;
+  }
